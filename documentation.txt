@@ -1,0 +1,132 @@
+/*************************************************************
+**  Dancing Frog Technologies PDO Database Library          **
+**                                                          **
+**  Created by Ryan Oaks of Dancing Frog Technologies       **
+**  Date:   September 29, 2015                              **
+**  Purpose: To allow developers to easily to connect to    **
+**      a database using the PDO module of PHP. This        **
+**      library has been tested against MySQL, InnoDB.      **
+**      An AJAX API as well as a PHP API is built into this **
+**      library. For more information contact               **
+**      frogoaks@gmail.com.                                 **
+*************************************************************/
+/*****************************************************
+**                                                  **
+**  Constructor                                     **
+**  Purpose: Used to create a new DBC object.       **
+**                                                  **
+*****************************************************/
+
+//insert
+/*********************************************
+**                                          **
+**  Insert                                  **
+**  Purpose: To insert data into table.     **
+**      $table is the name of the table the **
+**      DB table to insert the data. Can    **
+**      include DB name if the connection   **
+**      is to the server only. ie DB.TABLE  **
+**                                          **
+**      $fields is an array of field names. **
+**      these are the fields in the database**
+**                                          **
+**      $vars is an array of arrays         **
+**      containing the data to insert into  **
+**      each field. If multiple rows need   **
+**      to be inserted multiple arrays      **
+**      are required within the containing  **
+**      array. ie array(array('data','1'),  **
+**      array('data','2'))                  **
+**                                          **
+*********************************************/
+function insert_query($table,$fields,$vars)
+
+//select
+/*********************************************
+**                                          **
+**  Select                                  **
+**  Purpose:  To select data from the       **
+**      $table listed.                      **
+**                                          **
+**      $table is the name of the table the **
+**      DB table to insert the data. Can    **
+**      include DB name if the connection   **
+**      is to the server only. ie DB.TABLE  **
+**                                          **
+**      $fields is an array of the fields   **
+**      the query needs to return.          **
+**                                          **
+**      $condition is an SQL condition      **
+**      statment. Can be passed as null if  **
+**      all rows are needed.                **
+**                                          **
+**      $orderby is an SQL orderby          **
+**      statement. Can be passed as null if **
+**      order does not matter.              **
+**                                          **
+*********************************************/
+function select_query($table,$fields,$condition,$orderby)
+
+//join select
+/*********************************************
+**                                          **
+**  Join                                    **
+**  Purpose:  To select data from the       **
+**      $table listed.                      **
+**                                          **
+**      $table0 and $table1 is the name of  **
+**      the table the                       **
+**      DB table to insert the data. Can    **
+**      include DB name if the connection   **
+**      is to the server only. ie DB.TABLE  **
+**      $table1 will join $table0.          **
+**                                          **
+**      $joinon is the SQL join statement.  **
+**                                          **
+**      $fields is an array of the fields   **
+**      the query needs to return. Must have**
+**      the table name attached.            **
+**      ie TABLE.FIELD                      **
+**                                          **
+**      $condition is an SQL condition      **
+**      statment. Can be passed as null if  **
+**      all rows are needed.                **
+**                                          **
+**      $orderby is an SQL orderby          **
+**      statement. Can be passed as null if **
+**      order does not matter.              **
+**                                          **
+**      All fields must be accompanied by   **
+**      the table name ie TABLE.FIELD       **
+**      With out the tbale name the MySQL   **
+**      engine will return an error.        **
+**                                          **
+*********************************************/
+function join_query($table0,$table1,$joinon,$fields,$condition,$orderby)
+
+//delete
+/*****************************************
+**                                      **
+**  Delete                              **
+**  Purpose: To remove data from        **
+**      selected table.                 **
+**                                      **
+**  $table is the table to delete from. **
+**                                      **
+**  $condition is the condition the     **
+**      row needs to meet to be removed **
+**      from the table.                 **
+**                                      **
+*****************************************/
+function delete_query($table,$condition)
+
+//custom
+/*****************************************
+**                                      **
+**  Custom                              **
+**  Purpose: To allow developers to     **
+**      write an SQL query. This allows **
+**      for custom SQL queries.         **
+**                                      **
+*****************************************/
+function custom_query($query)
